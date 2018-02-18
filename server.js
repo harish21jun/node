@@ -10,7 +10,7 @@ let app = express()
 app.use(bodyParser.json())
 app.use(logger('dev'))
 app.use(errorhandler())
- 
+
 let store = {
   posts: [
     {name: 'Top 10 ES6 Features every Web Developer must know',
@@ -44,4 +44,10 @@ app.get('/posts/:postId/comments/:commentId',routes.comments.getComments)
 app.put('/posts/:postId/comments/:commentId',routes.comments.updateComment)
 app.delete('/posts/:postId/comments/:commentId',routes.comments.removeComment)
 
-app.listen(2000)
+//app.listen(2000)
+
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+app.listen(server_port, server_ip_address, function () {
+    console.log( "Listening on " + server_ip_address + ", server_port " + server_port  );
+});
