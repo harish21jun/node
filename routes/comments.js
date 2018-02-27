@@ -10,8 +10,8 @@ module.exports = {
   } 
   },
   addComment(req, res) {
-    let newComment = req.body
-      let comments = req.store.posts[req.params.postId].comments
+    var newComment = req.body
+      var comments = req.store.posts[req.params.postId].comments
 
       commentId = comments.length
       comments.push(newComment)
