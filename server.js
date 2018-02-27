@@ -6,12 +6,12 @@ const logger = require('morgan')
 const errorhandler = require('errorhandler')
 const bodyParser = require('body-parser')
 
-let app = express()
+var app = express()
 app.use(bodyParser.json())
 app.use(logger('dev'))
 app.use(errorhandler())
 
-let store = {
+var store = {
   posts: [
     {name: 'Top 10 ES6 Features every Web Developer must know',
     url: 'https://webapplog.com/es6',
