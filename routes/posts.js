@@ -19,8 +19,8 @@ module.exports = {
 
   addPost(req, res) {
     console.log("addPost")
-    let post = req.body
-    let postId = req.store.posts.length
+    var post = req.body
+    var postId = req.store.posts.length
     req.store.posts.push(post)
     res.status(201).send({postId: postId})
   },
